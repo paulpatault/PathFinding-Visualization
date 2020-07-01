@@ -1,8 +1,6 @@
 from pathfinder.graph import Graph
 from pathfinder.node import Node
 
-from utils import calculateIJFromV
-from constants import Cst
 from Table import Table
 
 import math
@@ -35,7 +33,7 @@ class Dijkstra(Algorithm):
 
             if current_vertex == dest:
                 break
-            (i, j) = calculateIJFromV(current_vertex, Cst.N)
+            # (i, j) = calculateIJFromV(current_vertex, Cst.N)
             table.array[i][j] = 2
             table.draw(screen)
 
@@ -83,8 +81,7 @@ class AStar(Algorithm):
         return path[::-1]
 
     def run(self, graph: Graph, source, dest, screen, table: Table):
-        self._initialise(dest.id)
-        self.dest = dest
+        self.dest = dest.id
 
         assert source.id in graph.vertices, "Such source node doesn't exist"
         if source == dest:

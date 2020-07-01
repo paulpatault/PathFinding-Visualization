@@ -1,8 +1,7 @@
 import pygame
 import pickle
-from constants import Colors
-from constants import Cst
-from utils import calculateIJsFromV
+from utils.colors import Colors
+from utils.constants import Cst
 from pathfinder.node import Node
 
 

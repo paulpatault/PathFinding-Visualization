@@ -53,7 +53,7 @@ class Graph:
 
 def graph_from_array(arr):
     def is_valid(pos):
-        from constants import Cst
+        from utils.constants import Cst
 
         x, y = pos
 

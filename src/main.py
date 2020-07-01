@@ -1,31 +1,32 @@
 import pygame
 from Table import Table
-from constants import Colors
-from constants import Cst
-from constants import Mouse
-from utils import getMousePos
+from utils.constants import *
+from utils.colors import Colors
+from utils.mouse import Mouse
 from pathfinder.node import Node
 
 pygame.init()
 
 
 def main(table):
-    last_mouse = Mouse(None, None)
-    path = None
+
+    mouse = Mouse(0, 0)
 
     while True:
         keys = pygame.key.get_pressed()
 
+        mouse.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
 
-            current_mouse = getMousePos()
-            x, y = current_mouse
-
-            if pygame.mouse.get_pressed()[0] and last_mouse != current_mouse:
-                last_mouse = current_mouse
+            if pygame.mouse.get_pressed()[0] and mouse.usable:
+                mouse.use()
+                x, y = mouse.get_pos()
                 table.swap(x, y)
+
+            if not pygame.mouse.get_pressed()[0]:
+                mouse.released()
 
             # clear
             if keys[pygame.K_c]:
@@ -35,11 +36,13 @@ def main(table):
 
             # set start node
             if keys[pygame.K_b]:
+                x, y = mouse.get_pos()
                 source = Node(x, y)
                 table.setSource(source)
 
             # set end node
             if keys[pygame.K_e]:
+                x, y = mouse.get_pos()
                 end = Node(x, y)
                 table.setEnd(end)
 
@@ -56,9 +59,8 @@ def main(table):
             from GraphVisualizer import GraphVisualizer
             from pathfinder.graph import Graph
             from pathfinder.graph import graph_from_array
-            from pathfinder.algorithms import Dijkstra
 
-            graph = Graph(graph_from_array(table.array))  # AJOUT ICI
+            graph = Graph(graph_from_array(table.array))
             gvisu = GraphVisualizer(graph, screen, table)
             path = gvisu.run(table.source, table.end)
             return table, path

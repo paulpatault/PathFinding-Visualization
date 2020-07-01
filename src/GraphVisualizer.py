@@ -11,5 +11,4 @@ class GraphVisualizer:
         self.screen = screen
 
     def run(self, source, dest):
-
         return self.algo.run(self.graph, source, dest, self.screen, self.table)
