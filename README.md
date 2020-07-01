@@ -12,14 +12,14 @@ Here are the commands to install all dependencies and run the program :
 *Simple Version*
 ```
 $ pip3 install -r requirements.txt
-$ python3 main.py
+$ python3 src/main.py
 ```
 or *Advanced Version*
 ```
 $ virtualenv venv
 $ source venv/bin/activate
 $ pip install -r requirements.txt
-$ python main.py
+$ python src/main.py
 ```
 
 # License
