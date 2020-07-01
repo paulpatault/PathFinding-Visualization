@@ -1,5 +1,5 @@
 class Cst:
-    N = 15
+    N = 20
     WIDTH = 700
     HEIGHT = 700
     SQUARE_SIZE = WIDTH / N
