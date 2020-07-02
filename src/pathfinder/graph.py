@@ -1,5 +1,7 @@
 from collections import namedtuple
-from pathfinder.node import Node
+from pathfinder.Node import Node
+from utils.Constants import Cst
+from utils.m_parser import args
 
 Edge = namedtuple("Edge", "start, end, cost")
 
@@ -14,11 +16,9 @@ class Graph:
         self.vertices = self._vertices()
         self.neighbours = self._neighbours()
 
-    # @property
     def _vertices(self):
         return set(sum(([edge.start.id, edge.end.id] for edge in self.edges), []))
 
-    # @property
     def _neighbours(self):
         neighbours = {vertex: set() for vertex in self.vertices}
         for edge in self.edges:
@@ -53,8 +53,6 @@ class Graph:
 
 def graph_from_array(arr):
     def is_valid(pos):
-        from utils.constants import Cst
-
         x, y = pos
 
         if x >= 0 and y >= 0 and x < Cst.N and y < Cst.N:
@@ -65,15 +63,22 @@ def graph_from_array(arr):
     def direct_neighbours(node: Node):
         neighbours = []
         l = [
-            (-1, -1, 1.4),
-            (0, -1, 1),
-            (1, -1, 1.4),
-            (-1, 0, 1),
-            (1, 0, 1),
-            (-1, 1, 1.4),
-            (0, 1, 1),
-            (1, 1, 1.4),
+            (-1, -1, 14),
+            (0, -1, 10),
+            (1, -1, 14),
+            (-1, 0, 10),
+            (1, 0, 10),
+            (-1, 1, 14),
+            (0, 1, 10),
+            (1, 1, 14),
         ]
+        if args.nd:
+            l = [
+                (0, -1, 10),
+                (-1, 0, 10),
+                (1, 0, 10),
+                (0, 1, 10),
+            ]
 
         for x, y, w in l:
             pos = (node.x + x, node.y + y)

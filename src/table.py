@@ -1,8 +1,8 @@
 import pygame
 import pickle
-from utils.colors import Colors
-from utils.constants import Cst
-from pathfinder.node import Node
+from utils.Colors import Colors
+from utils.Constants import Cst
+from pathfinder.Node import Node
 
 
 class Table:
@@ -96,7 +96,7 @@ class Table:
         )
         color = Colors(state).rgb
 
-        if state == "3":
+        if state == 3:
             alpha = 0.85
             dem_alpha = (1 - alpha) / 2
             rect = pygame.Rect(

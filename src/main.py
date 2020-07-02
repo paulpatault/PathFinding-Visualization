@@ -1,9 +1,9 @@
 import pygame
-from table import Table
-from utils.constants import *
-from utils.colors import Colors
-from utils.mouse import Mouse
-from pathfinder.node import Node
+from Table import Table
+from utils.Constants import *
+from utils.Colors import Colors
+from utils.Mouse import Mouse
+from pathfinder.Node import Node
 
 pygame.init()
 
@@ -57,8 +57,8 @@ def main(table):
         # RUN ALGO
         if keys[pygame.K_RIGHT]:
             from GraphVisualizer import GraphVisualizer
-            from pathfinder.graph import Graph
-            from pathfinder.graph import graph_from_array
+            from pathfinder.Graph import Graph
+            from pathfinder.Graph import graph_from_array
 
             graph = Graph(graph_from_array(table.array))
             gvisu = GraphVisualizer(graph, screen, table)

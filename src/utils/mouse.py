@@ -1,5 +1,5 @@
 import pygame
-from utils.constants import Cst
+from utils.Constants import Cst
 
 if not pygame.get_init():
     pygame.init()

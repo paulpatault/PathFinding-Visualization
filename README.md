@@ -1,9 +1,13 @@
 # Pathfinding Visualizer
-A [Pygame](https://www.pygame.org/) GUI visualization of the Dijstra or A* path finding algorithm. It allows you to pick your start and end node in the table and view the process of finding the shortest path.
+A [Pygame](https://www.pygame.org/) GUI visualization of the Dijkstra or A* path finding algorithm. It allows you to pick your start and end node in the table and view the process of finding the shortest path.
 
 # Preview
 
-![Preview GIF](assets/preview/example.gif)
+
+| ![Preview GIF](assets/preview/astar.gif) | ![Preview GIF](assets/preview/dij.gif) |
+| :--------------------------------------: | :------------------------------------: |
+|           **Astar algorithm**            |         **Dijkstra algorithm**         |
+
 
 # Dependencies and run commands
 
