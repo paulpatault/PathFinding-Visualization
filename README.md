@@ -26,5 +26,13 @@ $ pip install -r requirements.txt
 $ python src/main.py
 ```
 
+# Options
+
+You can add :
++ `--N=x`, where `x` is the lenght of the board
++ `--C=strong | smooth`, change colors style
++ `--algo=astar | (dij | dijkstra)`, choice of the algorithm used
++ `--nd=True | False`, "No Diagonals" : authorize or not diagonal search
+
 # License
 [MIT](https://choosealicense.com/licenses/mit/) License
