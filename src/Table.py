@@ -96,7 +96,7 @@ class Table:
         )
         color = Colors(state).rgb
 
-        if state == 3:
+        if state == "3":
             alpha = 0.85
             dem_alpha = (1 - alpha) / 2
             rect = pygame.Rect(
@@ -120,7 +120,7 @@ class Table:
 
         pygame.display.update()
 
-    def setPath(self, path):
+    def setPath(self, path, screen):
         """
         path : list of node.id
         Set to 10 (path) every node to represent the path in self.array
@@ -129,7 +129,10 @@ class Table:
             return False
         for (i, j) in path:
             if self.__notSourceOrEnd(i, j):
+                pygame.time.delay(20)
                 self.array[i][j] = 10
+                pygame.draw.rect(screen, *self.__makeRect(i, j, 10))
+                pygame.display.update()
         return True
 
     def drawPath(self, path, screen):
@@ -137,7 +140,7 @@ class Table:
         path : list of node.id
         Draw the path given in parameter
         """
-        if self.setPath(path):
+        if self.setPath(path, screen):
             self.draw(screen)
             self.path_is_draw = True
 

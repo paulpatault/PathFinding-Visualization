@@ -1,5 +1,5 @@
 import pygame
-from Table import Table
+from table import Table
 from utils.constants import *
 from utils.colors import Colors
 from utils.mouse import Mouse
@@ -70,7 +70,7 @@ def main(table):
 
 
 screen = pygame.display.set_mode(Cst.DIM)
-screen.fill((0, 0, 0))
+screen.fill((20, 20, 20))
 pygame.display.set_caption("PathFinding Visualizer")
 
 
