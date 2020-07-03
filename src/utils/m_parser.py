@@ -18,6 +18,7 @@ class Args:
         self.len = None
         self.diag = None
         self.color = None
+        self.destroy = None
         # self.load()
 
     def load(self):
@@ -27,6 +28,7 @@ class Args:
             self.len = int(args["len"])
             self.diag = args["diag"] == "Yes"
             self.color = args["color"]
+            self.destroy = args["destroy"]
         except:
             self.load()
 
@@ -84,10 +86,23 @@ class Args:
                 args["len"] = int(lenght_entry.get())
                 args["diag"] = diag_combobox.get()
                 args["color"] = color_combobox.get()
+                args["destroy"] = False
                 app.destroy()
 
             validate_button = ttk.Button(app, text="Run !", command=callBackFunc)
             validate_button.grid(column=0, row=8)
+
+            ################## exit ##################
+            def callBackFunc_exitV():
+                args["algo"] = algo_combobox.get()
+                args["len"] = int(lenght_entry.get())
+                args["diag"] = diag_combobox.get()
+                args["color"] = color_combobox.get()
+                args["destroy"] = True
+                app.destroy()
+
+            quit_button = ttk.Button(app, text="Exit", command=callBackFunc_exitV)
+            quit_button.grid(column=0, row=9)
 
             app.mainloop()
 

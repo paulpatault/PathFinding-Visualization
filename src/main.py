@@ -85,7 +85,7 @@ def main(table):
         pygame.display.update()
 
 
-while True:
+while not args.destroy:
     screen = pygame.display.set_mode(csts.Cst.DIM)
     screen.fill((20, 20, 20))
     pygame.display.set_caption("PathFinding Visualizer")
