@@ -28,6 +28,7 @@ $ python src/main.py
 
 # Options
 
+**This field must be updated**
 You can add :
 + `--N=x`, where `x` is the lenght of the board
 + `--C=strong | smooth`, change colors style
