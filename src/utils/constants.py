@@ -2,7 +2,7 @@ from utils.m_parser import args
 
 
 class Cst:
-    N = args.N
+    N = args.len
     WIDTH = 700
     HEIGHT = 700
     SQUARE_SIZE = WIDTH / N

@@ -1,16 +1,35 @@
+from utils.m_parser import args
+
+args.load()
+
 import pygame
-from Table import Table
-from utils.Constants import *
-from utils.Colors import Colors
-from utils.Mouse import Mouse
-from pathfinder.Node import Node
 
 pygame.init()
+
+import Table as mtable
+import utils.Constants as csts
+import utils.Colors as ccolors
+import utils.Mouse as mouse_mod
+import GraphVisualizer as gv
+import pathfinder.Graph as graph_mod
+from pathfinder.Node import *
+
+
+def modules_reload():
+    import importlib
+
+    importlib.reload(mtable)
+    importlib.reload(csts)
+    importlib.reload(ccolors)
+    importlib.reload(mtable)
+    importlib.reload(gv)
+    importlib.reload(graph_mod)
+    importlib.reload(mouse_mod)
 
 
 def main(table):
 
-    mouse = Mouse(0, 0)
+    mouse = mouse_mod.Mouse(0, 0)
 
     while True:
         keys = pygame.key.get_pressed()
@@ -55,13 +74,10 @@ def main(table):
                 table.loadBoard()
 
         # RUN ALGO
-        if keys[pygame.K_RIGHT]:
-            from GraphVisualizer import GraphVisualizer
-            from pathfinder.Graph import Graph
-            from pathfinder.Graph import graph_from_array
+        if keys[pygame.K_RETURN]:
 
-            graph = Graph(graph_from_array(table.array))
-            gvisu = GraphVisualizer(graph, screen, table)
+            graph = graph_mod.Graph(graph_mod.graph_from_array(table.array))
+            gvisu = gv.GraphVisualizer(graph, screen, table)
             path = gvisu.run(table.source, table.end)
             return table, path
 
@@ -69,22 +85,16 @@ def main(table):
         pygame.display.update()
 
 
-screen = pygame.display.set_mode(Cst.DIM)
-screen.fill((20, 20, 20))
-pygame.display.set_caption("PathFinding Visualizer")
-
-
-table = Table(Cst.N)
-table.draw(screen)
-
-
 while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
+    screen = pygame.display.set_mode(csts.Cst.DIM)
+    screen.fill((20, 20, 20))
+    pygame.display.set_caption("PathFinding Visualizer")
 
-    if pygame.key.get_pressed()[pygame.K_RETURN]:
-        table, path = main(table)
-        table.drawPath(path, screen)
+    table = mtable.Table(csts.Cst.N)
+    table.draw(screen)
 
-    pygame.display.update()
+    table, path = main(table)
+    table.drawPath(path, screen)
+    args.load()
+
+    modules_reload()

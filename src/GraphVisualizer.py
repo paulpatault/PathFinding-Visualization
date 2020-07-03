@@ -6,7 +6,8 @@ from utils.m_parser import args
 
 
 algorithm = AStar()
-if args.algo == "dijkstra" or args.algo == "dij":
+
+if args.algo == "Dijkstra":
     algorithm = Dijkstra()
 
 

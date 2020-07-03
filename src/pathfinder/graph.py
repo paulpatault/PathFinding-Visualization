@@ -63,21 +63,21 @@ def graph_from_array(arr):
     def direct_neighbours(node: Node):
         neighbours = []
         l = [
-            (-1, -1, 14),
-            (0, -1, 10),
-            (1, -1, 14),
-            (-1, 0, 10),
-            (1, 0, 10),
-            (-1, 1, 14),
-            (0, 1, 10),
-            (1, 1, 14),
+            (-1, -1, 1.4),
+            (0, -1, 1),
+            (1, -1, 1.4),
+            (-1, 0, 1),
+            (1, 0, 1),
+            (-1, 1, 1.4),
+            (0, 1, 1),
+            (1, 1, 1.4),
         ]
-        if args.nd:
+        if not args.diag:
             l = [
-                (0, -1, 10),
-                (-1, 0, 10),
-                (1, 0, 10),
-                (0, 1, 10),
+                (0, -1, 1),
+                (-1, 0, 1),
+                (1, 0, 1),
+                (0, 1, 1),
             ]
 
         for x, y, w in l:
@@ -98,9 +98,6 @@ def graph_from_array(arr):
                 for n in neighbours:
                     edge = (node, *n)
                     a, b = n
-                    # print(f"{node.id} -> {a.id}_{b}")
                     edges.append(edge)
-            # else:
-            #    print(i, j)
     return edges
 
