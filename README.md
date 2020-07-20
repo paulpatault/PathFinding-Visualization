@@ -28,13 +28,15 @@ $ python src/main.py
 
 # Options
 
-**This field must be updated**
+You are able to choose at the begining: 
++ the lenght of the board
++ the colors style
++ the algorithm 
++ ...
+  
+with this Tkinter window : 
 
-You can add :
-+ `--N=x`, where `x` is the lenght of the board
-+ `--C=strong | smooth`, change colors style
-+ `--algo=astar | (dij | dijkstra)`, choice of the algorithm used
-+ `--nd=True | False`, "No Diagonals" : authorize or not diagonal search
+![Preview GIF](assets/preview/tk.png)
 
 # License
 [MIT](https://choosealicense.com/licenses/mit/) License
