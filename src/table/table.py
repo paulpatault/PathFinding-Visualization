@@ -1,8 +1,8 @@
 import pygame
 import pickle
-from utils.Colors import Colors
-from utils.Constants import Cst
-from pathfinder.Node import Node
+from utils.colors import Colors
+from utils.constants import Cst
+from pathfinder.node import Node
 
 
 class Table:

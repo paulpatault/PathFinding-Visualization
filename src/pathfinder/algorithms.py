@@ -1,7 +1,7 @@
-from pathfinder.Graph import Graph
-from pathfinder.Node import Node
+from pathfinder.graph import Graph
+from pathfinder.node import Node
 
-from Table import Table
+from table.table import Table
 
 import math
 

@@ -6,13 +6,12 @@ import pygame
 
 pygame.init()
 
-import Table as mtable
-import utils.Constants as csts
-import utils.Colors as ccolors
-import utils.Mouse as mouse_mod
+import table.table as mtable
+import utils.constants as csts
+import utils.mouse as mouse_mod
 import GraphVisualizer as gv
-import pathfinder.Graph as graph_mod
-from pathfinder.Node import *
+import pathfinder.graph as graph_mod
+from pathfinder.node import *
 
 
 def modules_reload():
@@ -20,8 +19,6 @@ def modules_reload():
 
     importlib.reload(mtable)
     importlib.reload(csts)
-    importlib.reload(ccolors)
-    importlib.reload(mtable)
     importlib.reload(gv)
     importlib.reload(graph_mod)
     importlib.reload(mouse_mod)

@@ -1,6 +1,6 @@
 from collections import namedtuple
-from pathfinder.Node import Node
-from utils.Constants import Cst
+from pathfinder.node import Node
+from utils.constants import Cst
 from utils.m_parser import args
 
 Edge = namedtuple("Edge", "start, end, cost")

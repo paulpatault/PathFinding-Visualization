@@ -1,7 +1,7 @@
-from pathfinder.Graph import Graph
-from pathfinder.Algorithms import Dijkstra
-from pathfinder.Algorithms import AStar
-from pathfinder.Algorithms import Algorithm
+from pathfinder.graph import Graph
+from pathfinder.algorithms import Dijkstra
+from pathfinder.algorithms import AStar
+from pathfinder.algorithms import Algorithm
 from utils.m_parser import args
 
 
